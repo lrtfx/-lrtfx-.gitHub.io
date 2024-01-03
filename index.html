@@ -1,69 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arcadia Furniture</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Add more styles as needed */
+
+        .image-slider {
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+            margin: 20px 0;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+
 <body>
     <header>
-        <h1>Welcome to Arcadia Furniture</h1>
-        <nav>
-            <ul>
-                <li><a href="#sofas">Sofas</a></li>
-                <li><a href="#tables">Tables</a></li>
-                <li><a href="#chairs">Chairs</a></li>
-                <li><a
-                 href="#storage">Storage</a></li>
-            </ul>
-        </nav>
+        <h1>Arcadia Furniture</h1>
+        <p>Beautiful and Functional Furniture for Your Home</p>
     </header>
 
-    <main>
-        <section id="sofas">
-            <h2>Sofas</h2>
-            <div class="product">
-                <img src="images/sofa1.jpg" alt="Sofa 1">
-                <h3>Sofa 1</h3>
-                <p>$200</p>
-            </div>
-            <!-- Add more sofa products here -->
-        </section>
+    <section>
+        <h2>Welcome to Arcadia Furniture</h2>
+        <p>Discover our exquisite collection of furniture that combines style and comfort.</p>
+        <p>Explore our catalog to find the perfect pieces for your home.</p>
+    </section>
 
-        <section id="Sofa">
-            <h2>Sofas</h2>
-            <div class="product">
-                <img src="images/table1.jpg" alt="Table 1">
-                <h3>Table 1</h3>
-                <p>$100</p>
-            </div>
-            <!-- Add more table products here -->
-        </section>
+    <section>
+        <h2>Featured Products</h2>
+        <!-- Add your product listings here -->
+        <div>
+            <h3>Product 1</h3>
+            <p>Description and details...</p>
+        </div>
+        <div>
+            <h3>Product 2</h3>
+            <p>Description and details...</p>
+        </div>
+    </section>
 
-        <section id="chairs">
-            <h2>Chairs</h2>
-            <div class="product">
-                <img src="images/chair1.jpg" alt="Chair 1">
-                <h3>Chair 1</h3>
-                <p>$50</p>
+    <section class="image-slider">
+        <div class="slides">
+            <!-- Add your images for the slider here -->
+            <div class="slide">
+                <img src="image1.jpg" alt="Furniture Slide 1">
             </div>
-            <!-- Add more chair products here -->
-        </section>
-
-        <section id="storage">
-            <h2>Storage<ni/h2>
-            <div class="product">
-                <img src="images/storage1.jpg" alt="Storage 1">
-                <h3>Storage by1</h3>
-                <p>$75</p>
+            <div class="slide">
+                <img src="image2.jpg" alt="Furniture Slide 2">
             </div>
-            <!-- Add more storage products here -->
-        </section>
-    </main>
+            <!-- Add more slides as needed -->
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2022 Furniture XYZ. All rights reserved.</p>
+        <p>&copy; 2024 Arcadia Furniture. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Your JavaScript code for image slider goes here
+        const slides = document.querySelector('.slides');
+        const slideItems = document.querySelectorAll('.slide');
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            if (index < 0) {
+                currentIndex = slideItems.length - 1;
+            } else if (index >= slideItems.length) {
+                currentIndex = 0;
+            } else {
+                currentIndex = index;
+            }
+
+            const translationValue = -currentIndex * 100 + '%';
+            slides.style.transform = 'translateX(' + translationValue + ')';
+        }
+
+        setInterval(() => {
+            showSlide(currentIndex + 1);
+        }, 3000); // Change slide every 3 seconds
+    </script>
 </body>
+
 </html>
